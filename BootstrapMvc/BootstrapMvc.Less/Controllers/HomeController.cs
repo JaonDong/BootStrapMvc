@@ -15,5 +15,19 @@ namespace BootstrapMvc.Less.Controllers
             
             return View();
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(string email)
+        {
+            var result = new
+            {
+                state=email==""
+            };
+            return Json(result);
+        }
 	}
 }
