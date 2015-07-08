@@ -1,0 +1,77 @@
+﻿@using System.Web.Optimization
+
+@{
+    ViewBag.Title = "Login";
+}
+<style type="text/css">
+
+    </style>
+<script type="text/javascript">
+    $(function () {
+        $("#tan").click(function () {
+            $("#mymodal").modal("toggle");
+        });
+
+        $("#save").click(function () {
+            var text = $("#exampleInputEmail1").val();
+            $.ajax({
+                url: "@(Url.Action("Login"))",
+                type: "post",
+                data: { "email": text },
+                dataType:"Json",
+                success: function (data) {
+                    if (data.state) {
+                        $("#mymodal").modal("toggle");
+                    } else {
+                        alert("失败");
+                    }
+                },
+
+            });
+        });
+    });
+
+</script>
+<h2>Login</h2>
+
+
+<button id="tan" class="btn btn-primary" type="button">点击我</button>
+<div class="modal" id="mymodal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">模态弹出窗标题</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">File input</label>
+                        <input type="file" id="exampleInputFile">
+                        <p class="help-block">Example block-level help text here.</p>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Check me out
+                        </label>
+                        <button class="btn btn-default">222</button>
+                    </div>
+                    <button onclick="location.reload()" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="save">保存</button>
+                <button type="button" class="btn">点击</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
