@@ -1,10 +1,32 @@
-﻿
+﻿@using System.Web.Optimization
+
 @{
     ViewBag.Title = "Index";
 }
 
+<script type="text/javascript" src="../../Scripts/jquery.leanModal.min.js"></script>
+<style type="text/css">
+    #lean_overlay {
+        position: fixed;
+        z-index: 100;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        background: #000;
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#trigger_id").leanModal();
+        //.leanModal({ top: 200, overlay: 0.4, closeButton: ".modal_close" });
+    });
+</script>
 <h2>Index</h2>
 
 <div class="container">
-    <div></div>
+    <div id="trigger_id">
+        <button class="modal_close">关闭</button>
+    </div>
 </div>
