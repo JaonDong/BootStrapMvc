@@ -16,8 +16,9 @@ namespace BootstrapMvc.Less
                       "~/Scripts/bootstrap.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/bootstrap-theme.css"));
+                 "~/Content/bootstrap-theme.css",
+                      "~/Content/bootstrap.css")
+                     );
         }
     }
 }

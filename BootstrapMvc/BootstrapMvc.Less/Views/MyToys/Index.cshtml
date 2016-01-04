@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "My Toys~~Ta_wuhen";
+}
+@section styles
+{
+    <link href="~/Content/silder.css" rel="stylesheet"/>
+    <style type="text/css">
+        body {
+            /*background-image: url("")*/
+        }
+    </style>
+}
+@section scripts
+{
+    <script src="~/Scripts/silder.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //初始化Silder
+            $("#modelSlider").slider({
+                imgs: [
+                    "@Url.Content("~/Content/pictures/model1.png")",
+                    "@Url.Content("~/Content/pictures/model2.png")"
+                ],
+                urls: [
+                    'javascript:makeDialog("轮显提示或者地址","第1个图",function(){},3)'
+                ],
+                scale: 5 / 2,
+                border: false,
+                showBar: false,
+                delay: 2200,
+                interval: 1500,
+                x: 4,
+                y: 3
+            });
+
+        });
+        jQuery.extend(jQuery.easing, {
+            easeOutBounce: function(x, t, b, c, d) {
+                if ((t /= d) < (1 / 2.75)) {
+                    return c * (7.5625 * t * t) + b;
+                } else if (t < (2 / 2.75)) {
+                    return c * (7.5625 * (t -= (1.5 / 2.75)) * t + .75) + b;
+                } else if (t < (2.5 / 2.75)) {
+                    return c * (7.5625 * (t -= (2.25 / 2.75)) * t + .9375) + b;
+                } else {
+                    return c * (7.5625 * (t -= (2.625 / 2.75)) * t + .984375) + b;
+                }
+            },
+            easeOutCubic: function(x, t, b, c, d) {
+                return c * ((t = t / d - 1) * t * t + 1) + b;
+            }
+        });
+        function sendBirld() {
+            var ele = $("#birld").stop(true, false);
+            ele.css({ "left": "0", "top": "0", "transform": "rotateZ(0deg)" });
+            $({ left: 0, top: 0, tran: 0 }).animate({
+                left: 800,
+                top: 180,
+                tran: 360
+            }, {
+                duration: 2500,
+                specialEasing: {
+                    left: 'easeOutCubic',
+                    top: 'easeOutBounce'
+                },
+                step: function() {
+                    ele.css({ "left": this.left + "px", "top": this.top + "px", "transform": "rotateZ(" + this.tran + "deg)" });
+                },
+                complete: function() {
+                    ele.css({ "left": "800px", "top": "180px", "transform": "rotateZ(360deg)" });
+                }
+            });
+        }
+        //设置定时
+    </script>
+}
+
+
+
+<div class="row">
+    <div id="modelSlider">&nbsp;</div>
+    <div style="margin-top: 50px">
+        <button class="btn btn-default" onclick="$('#modelSlider').slider('begin');">开始</button>
+        @*<button class="btn btn-default" onclick='$("#modelSlider").slider("resize", { border: true, showBar: false });'>切块</button>*@
+    </div>
+</div>
+
+<div class="row" style="margin-top: 50px;">
+    <div style="height: 240px; width: 860px; border: solid 1px #ddd; position: relative;">
+        <button class="btn btn-danger" style="position: absolute; top: 180px; left: 20px;" onclick="sendBirld();" type="button">点击发射</button>
+        <img id="birld" style="position: absolute; left: 800px; top: 180px; -webkit-transform: rotateZ(360deg);" src="@Url.Content("~/Content/pictures/niao.png")" alt="">
+    </div>
+</div>
+

@@ -1,0 +1,109 @@
+﻿
+@{
+
+    ViewBag.Title = "Buy";
+}
+<style type="text/css">
+
+    .box {
+       
+    }
+</style>
+
+<script type="text/javascript">
+    $(function () {
+        $("#tan").click(function () {
+            $("#mymodal").modal("toggle");
+        });
+    });
+
+</script>
+<div class="row">
+    <div class="col-xs-6">
+        <button class="btn btn-default btn-block">收藏</button>
+    </div>
+    <div class="col-xs-6">
+        <button id="buy" class="btn btn-danger btn-block">加入购物车</button>
+    </div>
+</div>
+<button id="tan" class="btn btn-primary" type="button">点击我</button>
+<div class="modal" id="mymodal" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="save">保存</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="row">
+    <div class="col-xs-4" >
+        <div  class="input-group">
+            <div class="input-group-btn">
+                <button class="btn btn-default">-</button>
+            </div>
+            <input type="text" class="form-control text-center" placeholder="1" value="1"/>
+            <div class="input-group-btn">
+                <button class="btn btn-default">-</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-8">
+        
+    </div>
+</div>
+<del style="color:#ccc;">88</del>
+    
+   
+<div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>注意!</strong> 本站查询的分数来源于12333官网，详情请到官网咨询
+</div>  
+
+
+
+
+<button id="myalert-btn" class="btn btn-default" >框</button>
+
+<div class="modal" id="myalert">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                你的商品已收藏！
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-block" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dropdown">
+    <span class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Dropdown
+        <span class="caret"></span>
+    </span>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li><a href="#">Separated link</a></li>
+    </ul>
+</div>
+<div id="alertText" class="alert alert-block hidden">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>Warning!</h4>Best check yo self, you're not...
+</div>
+<button id="alertShow" class="btn btn-default">alert</button>
+<script type="text/javascript">
+    $("#myalert-btn").click(function ()
+    {
+        $("#myalert").modal("toggle");
+    });
+    $("#alertShow").click(function () {
+        $("#alertText").show();
+    });
+</script>

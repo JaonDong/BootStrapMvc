@@ -1,0 +1,58 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "Index";
+    Layout = "";
+}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<style type="text/css">
+    .red {
+        border-bottom:1px solid red;
+    }
+</style>
+<h2>Index</h2>
+ <!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+</ul>
+
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">Home</div>
+    <div role="tabpanel" class="tab-pane" id="profile">Profile</div>
+</div>
+
+
+<div class="row nav nav-tabs" role="tablist">
+    <div  class="col-xs-6 active red" role="presentation"  >
+        <a id="firstbtn" href="#first" aria-controls="first" role="tab" data-toggle="tab">Home</a>
+    </div>
+    <div class="col-xs-6">
+        <a id="secondbtn" href="#second" aria-controls="second" role="tab" data-toggle="tab">Home</a>
+    </div>
+</div>
+
+
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="first">Home</div>
+    <div role="tabpanel" class="tab-pane" id="second">Profile</div>
+</div>
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#firstbtn").click(function () {
+                $('#first').tab('show');
+                $("#firstbtn").parent().addClass("red");
+                $("#secondbtn").parent().removeClass("red");
+            });
+            $("#secondbtn").click(function () {
+                $('#second').tab("show");
+                $("#secondbtn").parent().addClass("red");
+                $("#firstbtn").parent().removeClass("red");
+            });
+        });
+
+</script>
